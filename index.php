@@ -38,7 +38,11 @@ $container = $containerBuilder->build();
 
 // routes for the application
 $routes = simpleDispatcher(function( RouteCollector $r){
+    // routes add here!
     $r->get('/hello/{name}', [Hello::class, 'hello']);
+    $r->get('/', function(){
+        return "Hello World";
+    });
 });
 
 $middlewareQueue[] = new FastRoute($routes);
